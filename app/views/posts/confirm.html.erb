@@ -1,0 +1,14 @@
+<h1>confirmation screen</h1>
+<%= form_with(model: @post, url: posts_path, local: true) do |form| %>
+  <!-- Description for displaying the uploaded image on the confirmation screen -->
+  <p>Body:<%= @post.content %></p>
+  <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+  <%= form.hidden_field :content %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "Post" %>
+<% end %>
+
+<%= form_with(model:@post, url:new_post_path, local:true, method:"get") do |form| %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "Return", name: "back" %>
+<% end %>

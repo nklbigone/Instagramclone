@@ -1,0 +1,50 @@
+<div class="main">
+  <div class="left">
+    <p id="notice"><%= notice %></p>
+  </div>
+
+  <div class="content">
+    <div class="new-edit">
+        <% if user_signed_in? %>
+        <% check = 0, links='1', id=nil %>
+        <% @profiles.each do |profile| %>
+          <% if current_user.id == profile.user_id %>
+            <% check = 1%>
+            <%links = profile.image.url %>
+            <%id =profile%>
+          <% end %>
+        <% end %>
+        <% if check==1 %>
+        <h4>profile picture</h4>
+        <%= image_tag links, class:"brand_logo" unless links.blank? %>
+        <strong class="user">
+        <%= link_to 'change Profile Picture', edit_profile_path(id), class:"btn btn-primary" %>
+        <%= link_to 'remove Profile Picture', id, method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %>
+        <%= link_to 'Posts', posts_path, class:"btn btn" %>
+        <img src="https://img.icons8.com/ios/50/000000/gear.png" style="width: 30px;height: 30px;">
+      <% else %>
+        <%= image_tag "pro4.png", class:"brand_logo" %>
+        <%= link_to 'upload a profile picture', new_profile_path, class:"btn btn-success" %>
+        <%= link_to 'Posts', posts_path, class:"btn btn" %>
+        <img src="https://img.icons8.com/ios/50/000000/gear.png" style="width: 30px;height: 30px;">
+      <% end %>
+    <% end %>
+
+    </div>
+  </div>
+  <div class="right">
+    <% if user_signed_in? %>
+      <% if current_user.profile == nil %>
+        <p><%= image_tag 'pro4.png', class:"rounded-circle" %></p>
+      <% else %>
+        <% if current_user.profile.image? %>        
+          <p><%= image_tag current_user.profile.image.url, class:"rounded-circle" %>
+          <%= current_user.email %>
+          </p>    
+        <% end %> 
+      <% end %>
+    <% end %>
+    <%= link_to 'Back-Home', posts_path, class:"btn btn-info" %>  
+  </div>
+</div>
+

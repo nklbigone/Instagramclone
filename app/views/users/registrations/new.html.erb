@@ -1,0 +1,45 @@
+&nbsp &nbsp &nbsp &nbsp <%=image_tag('insta.png')%>
+
+      <div class="insta">
+      <p>Instagram</p>
+      <%= link_to "Sign Up", new_user_registration_path,class:'btn btn-primary btn-lg btn-block' %>
+      <pre>OR</pre>
+      <%= link_to "Sign In", new_user_session_path, class:'btn btn-primary btn-lg btn-block' %>
+      </div>
+
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;width:100%">
+  <a class="navbar-brand" href="#" >
+  <p style:"color:white"><%=image_tag('instagram.png',style:"width:40px;margin-left:600px")%>
+    ©Dive Instagram clone<p> 
+  </a>
+</nav>
+
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

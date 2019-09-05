@@ -1,0 +1,26 @@
+.rounded-circle{
+    border-radius: 50%;
+    width: 50px;
+    
+    background-color: white
+}
+
+.navbar{
+    background-color:white;
+    border:solid 1px rgb(227, 230, 227);
+    width: 100%;
+    position:fixed;
+}
+.logo{
+    margin-left: 30px;
+}
+.logout{
+    margin-right:100px;
+}
+.search{
+    border-radius: 3px;
+    background-color: #fafafa;
+    border:solid 1px rgb(227, 230, 227);
+    text-align: center;
+    color: darkgrey; 
+}

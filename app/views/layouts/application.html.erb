@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>InstagramClone</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+    </head>
+
+  <body style="background-color:#fafafa">
+    
+    <% if signed_in? %>
+      <nav class="navbar navbar-light fixed-top">
+        <a class="navbar-brand logo">
+          <%= link_to posts_path(current_user) do %>
+            <%= image_tag "instalogo.png" %>
+          <% end %>
+        </a>
+  
+        <form class="form-inline">
+          <input class="search" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        <a class="navbar-brand logout" href="#" >
+          <%= link_to profiles_path(current_user) do %>
+            <%= image_tag "profile.png" %>
+          <% end %>      
+          <%= link_to destroy_user_session_path,method: :delete do %>
+            <%= image_tag "exit.png", style:'width:30px;margin-right:100px' %>
+          <% end %>
+        </a>
+      </nav>
+    <% end %>        
+    <p class="notice"><%= notice %></p>
+    <%= yield %>
+  </body>
+</html>

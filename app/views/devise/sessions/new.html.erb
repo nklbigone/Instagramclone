@@ -1,0 +1,36 @@
+
+&nbsp &nbsp &nbsp &nbsp <%=image_tag('insta.png')%>
+
+<div class="insta">
+<p>Instagram</p>
+<%= link_to "Sign up", new_user_registration_path, class:'btn btn-primary btn-lg btn-block' %>
+<hr><pre>OR</pre><hr>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: 'Email',class:'name' %>
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password, autocomplete: "current-password",placeholder: 'password',class:'name' %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in",class:'btn btn-primary btn-lg btn-block' %>
+  </div>
+<% end %>
+</div>
+
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;width:100%">
+  <a class="navbar-brand" href="#" >
+  <p style:"color:white"><%=image_tag('instagram.png',style:"width:40px;margin-left:600px")%>
+    ©Dive Instagram clone<p> 
+  </a>
+</nav>

@@ -1,0 +1,43 @@
+<%= form_with(model: @post, local: true ,url: choose_new_or_edit ) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_area :content, placeholder:'Content' %>
+  </div>
+    <%= form.label :image %><br>
+    <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+    <%= form.file_field :image,style:"max-width:100%" %>
+    <%= form.hidden_field :image_cache, placeholder:'image chooser',style:"max-width:100%" %>
+    <br><hr>
+    <%= form.submit class:'btn btn-success' %>
+<% end %>
+</div>
+</div>
+<div class="right">
+
+<% if user_signed_in? %>
+    
+    <% if current_user.profile == nil %>
+    <p><%= image_tag 'pro4.png', class:"rounded-circle" %></p>
+    <% else %>
+    <% if current_user.profile.image? %>        
+      <p><%= image_tag current_user.profile.image.url, class:"rounded-circle" %>
+      <%= current_user.email %>
+      </p>    
+     <% end %> 
+    <% end %>
+  <% end %>
+  <%= link_to 'Back-Home', posts_path, class:"btn btn-info" %>  
+</div>
+</div>
+

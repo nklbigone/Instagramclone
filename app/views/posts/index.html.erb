@@ -1,0 +1,46 @@
+<div class="main">
+<div class="left">
+<p id="notice"><%= notice %></p>
+</div>
+
+<div class="content">
+    <% @posts.each do |post| %>
+      <div class="content-content">
+       <div class="head">
+        <%= image_tag post.user.profile.image.url, class:"rounded-circle" %>
+        <%= post.user.email %>
+        </div>
+        <%= image_tag post.image.url,style:"width:100%" %><br><br>
+        <div class="post-content">
+        <%= post.content %>
+        </div>
+        <div class="buttons">
+        <%= link_to 'Show', post, class:"btn btn-warning" %>
+        <%if post.user == current_user %>
+          <td><%= link_to 'Edit', edit_post_path(post), data: { confirm: 'Are you sure to edit it？' }, class:"btn btn-info" %></td>
+          <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+        <% end %>
+      </div>
+      </div>
+    <% end %>
+</div>
+
+<div class="right">
+
+<% if user_signed_in? %>
+    
+    <% if current_user.profile == nil %>
+    <p><%= image_tag 'pro4.png', class:"rounded-circle" %></p>
+    <% else %>
+    <% if current_user.profile.image? %>        
+      <p><%= image_tag current_user.profile.image.url, class:"rounded-circle" %>
+      <%= current_user.email %>
+      </p>    
+     <% end %> 
+    <% end %>
+  <% end %>
+  <%= link_to 'New Post', new_post_path, class:"btn btn-info" %>
+  
+</div>
+</div>
+
