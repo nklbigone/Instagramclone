@@ -26,7 +26,12 @@
         <a class="navbar-brand logout" href="#" >
           <%= link_to profiles_path(current_user) do %>
             <%= image_tag "profile.png" %>
-          <% end %>      
+          <% end %>
+          
+          <%= link_to favorites_path do %>
+            <%= image_tag "favorites.png" %>
+          <% end %>   
+
           <%= link_to destroy_user_session_path,method: :delete do %>
             <%= image_tag "exit.png", style:'width:30px;margin-right:100px' %>
           <% end %>
