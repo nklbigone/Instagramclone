@@ -1,3 +1,10 @@
+<div class="main">
+  <div class="left">
+    <p id="notice"><%= notice %></p>
+  </div>
+
+  <div class="content">
+    <div class="new-edit">
 <h1>confirmation screen</h1>
 <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
   <!-- Description for displaying the uploaded image on the confirmation screen -->
@@ -12,3 +19,20 @@
   <%= form.hidden_field :image_cache %>
   <%= form.submit "Return", name: "back" %>
 <% end %>
+</div>
+  </div>
+  <div class="right">
+    <% if user_signed_in? %>
+      <% if current_user.profile == nil %>
+        <p><%= image_tag 'pro4.png', class:"rounded-circle" %></p>
+      <% else %>
+        <% if current_user.profile.image? %>        
+          <p><%= image_tag current_user.profile.image.url, class:"rounded-circle" %>
+          <%= current_user.email %>
+          </p>    
+        <% end %> 
+      <% end %>
+    <% end %>
+    <%= link_to 'Back-Home', posts_path, class:"btn btn-info" %>  
+  </div>
+</div>
