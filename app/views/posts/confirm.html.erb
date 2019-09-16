@@ -9,7 +9,7 @@
 <%= form_with(model: @post, url: posts_path, local: true) do |form| %>
   <!-- Description for displaying the uploaded image on the confirmation screen -->
   <p>Body:<%= @post.content %></p>
-  <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+  <%= image_tag(@post.image.url, :size => "260x180") if @post.image && @post.image.url %>
   <%= form.hidden_field :content %>
   <%= form.hidden_field :image_cache %>
   <%= form.submit "Post" %>
@@ -33,6 +33,6 @@
         <% end %> 
       <% end %>
     <% end %>
-    <%= link_to 'Back-Home', posts_path, class:"btn btn-info" %>  
+    <%= link_to 'Back-Home', posts_path, class:"btn btn-secondary" %>  
   </div>
 </div>

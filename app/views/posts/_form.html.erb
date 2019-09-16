@@ -15,11 +15,11 @@
     <%= form.text_area :content, placeholder:'Content' %>
   </div>
     <%= form.label :image %><br>
-    <%= image_tag(@post.image.url) if @post.image && @post.image.url %>
+    <%= image_tag(@post.image.url, :size => "260x180") if @post.image && @post.image.url %>
     <%= form.file_field :image,style:"max-width:100%" %>
     <%= form.hidden_field :image_cache, placeholder:'image chooser',style:"max-width:100%" %>
     <br><hr>
-    <%= form.submit class:'btn btn-success' %>
+    <%= form.submit class:'btn btn-secondary' %>
 <% end %>
 </div>
 </div>
@@ -37,7 +37,7 @@
      <% end %> 
     <% end %>
   <% end %>
-  <%= link_to 'Back-Home', posts_path, class:"btn btn-info" %>  
+  <%= link_to 'Back-Home', posts_path, class:"btn btn-secondary" %>  
 </div>
 </div>
 

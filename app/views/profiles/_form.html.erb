@@ -1,7 +1,7 @@
 <%= form_with(model: profile, local: true) do |form| %>
   <% if @profile.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+      <h2><%= pluralize(profile.errors.count, "error") %> prohibited please try again later:</h2>
 
       <ul>
       <% profile.errors.full_messages.each do |message| %>
@@ -22,7 +22,7 @@
   </div>
   <hr>
   <div class="actions">
-    <%= form.submit class:'btn btn-success' %>
+    <%= form.submit class:'btn btn-secondary' %>
   </div>
 <% end %>
 </div>
@@ -41,7 +41,7 @@
      <% end %> 
     <% end %>
   <% end %>
-  <%= link_to 'Back-Home', posts_path, class:"btn btn-info" %>  
+  <%= link_to 'Back-Home', posts_path, class:"btn btn-secondary" %>  
 </div>
 </div>
 

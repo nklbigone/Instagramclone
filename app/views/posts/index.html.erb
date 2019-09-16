@@ -23,9 +23,9 @@
         <%= post.content %>
         </div>
         <div class="buttons">
-        <%= link_to 'Show', post, class:"btn btn-warning" %>
+        <%= link_to 'Show', post, class:"btn btn-secondary" %>
         <%if post.user == current_user %>
-          <td><%= link_to 'Edit', edit_post_path(post), data: { confirm: 'Are you sure to edit it？' }, class:"btn btn-info" %></td>
+          <td><%= link_to 'Edit', edit_post_path(post), data: { confirm: 'Are you sure to edit it？' }, class:"btn btn-secondary" %></td>
           <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
         <% end %>
       </div>
@@ -48,7 +48,7 @@
      <% end %> 
     <% end %>
   <% end %>
-  <%= link_to 'New Post', new_post_path, class:"btn btn-info" %> 
+  <%= link_to 'New Post', new_post_path, class:"btn btn-secondary" %> 
 </div>
 </div>
 

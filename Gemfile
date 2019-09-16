@@ -18,6 +18,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem "rspec-rails"
+  gem 'spring-commands-rspec'
+  gem "factory_bot_rails"
+  gem 'faker'
+  gem "database_cleaner"
+  gem "launchy"
 end
 
 group :development do
@@ -32,5 +38,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
 end
-
+gem 'bcrypt-ruby', '3.0.1'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
